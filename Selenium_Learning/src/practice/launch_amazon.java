@@ -1,5 +1,7 @@
 package practice;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class launch_amazon {
@@ -8,12 +10,15 @@ public class launch_amazon {
 		System.setProperty("webdriver.chrome.driver", "/Users/vikas.pal/Desktop/Selenium_weekend_Batch/chromedriver-mac-arm64/chromedriver");
 		ChromeDriver driver=new ChromeDriver();
 		
+		// Method to Maximize
+		
+		driver.manage().window().maximize();
 		
 		// method to launch web  Application
-				driver.get("https://amazon.com/");
+				driver.get("https://doubtnut.com/");
 				
 				
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 				
 				// Method to fetch the Title
 				
@@ -29,9 +34,32 @@ public class launch_amazon {
 				String sourceCode = driver.getPageSource();
 				//System.out.println(sourceCode);
 				
-				// Method to Full Screen Browser
+				// click on login
+				driver.findElement(By.xpath("//span[@class='text-primary']")).click();
+				Thread.sleep(1000);
+//				Enter mobile number
 				
-				driver.manage().window().fullscreen();
+				WebElement rml = driver.findElement(By.xpath("//input[contains(@class,'input font')]"));
+				rml.click();
+				rml.sendKeys("4567887654");
+				Thread.sleep(1000);
+				
+//				Click on Generate OTP
+				
+				driver.findElement(By.xpath("//button[@id='send-otp']")).click();
+				Thread.sleep(2000);
+				
+				
+//				Enter OTP
+				driver.findElement(By.xpath("//input[@id='OTP-0']")).sendKeys("1");
+				driver.findElement(By.xpath("//input[@id='OTP-1']")).sendKeys("2");
+				driver.findElement(By.xpath("//input[@id='OTP-2']")).sendKeys("3");
+				driver.findElement(By.xpath("//input[@id='OTP-3']")).sendKeys("4");
+				
+
+//				Click on verify OTP
+				
+				driver.findElement(By.xpath("//button[@id='verify-otp']")).click();
 				
 
 				// method to fetch X_Axis
@@ -44,10 +72,8 @@ public class launch_amazon {
 				int y_axis = driver.manage().window().getPosition().getY();
 				System.out.println(y_axis);
 				
-				// method to maximize Browser
 				
-				//driver.manage().window().maximize();
-				//Thread.sleep(5000);
+				Thread.sleep(5000);
 				
 				// Method to close the browser
 				
