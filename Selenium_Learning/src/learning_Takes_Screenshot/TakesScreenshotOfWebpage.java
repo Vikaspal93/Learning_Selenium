@@ -11,7 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class TakesScreenshotOfWebpage {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		System.setProperty("webdriver.chrome.driver", "/Users/vikas.pal/Desktop/Selenium_weekend_Batch/chromedriver-mac-arm64/chromedriver");
 		WebDriver driver=new ChromeDriver();
@@ -25,7 +25,9 @@ public class TakesScreenshotOfWebpage {
 		 File destination = new File("/Users/vikas.pal/git/Learning_Selenium/Selenium_Learning/screenshots/webpagess.png");
 		 FileHandler.copy(source, destination);
 		
+		Thread.sleep(2000);
 		
+		 driver.quit();
 	}
 
 }
