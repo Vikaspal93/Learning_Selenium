@@ -24,7 +24,7 @@ public class LearningExplicitWait {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Password")));
 		driver.findElement(By.name("password")).sendKeys("admin123");
 		
-//		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[@type='submit']")));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[@type='submit']")));
 		driver.findElement(By.xpath("//button[contains(@class,'o')]")).click();
 		
 		Thread.sleep(2000);
